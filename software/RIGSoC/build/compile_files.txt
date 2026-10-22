@@ -1,4 +1,5 @@
 ibex_pkg.sv
+dm_pkg.sv
 prim_pkg.sv
 prim_cipher_pkg.sv
 prim_generic_and2.sv
@@ -140,6 +141,12 @@ debug_rom.sv
 debug_rom_one_scratch.sv
 prim_sync_reqack.sv
 dmi_bscane_tap.sv
+dmi_cdc.sv
+dmi_jtag.sv
+dm_csrs.sv
+dm_sba.sv
+dm_mem.sv
+dm_top.sv
 jtag_id_pkg.sv
 ibex_demo_system.sv
 debounce.sv

@@ -547,9 +547,9 @@ module ibex_top import ibex_pkg::*; #(
 
   end else begin : gen_noscramble
 
-    logic unused_scramble_inputs = scramble_key_valid_i & (|scramble_key_i) & (|RndCnstIbexKey) &
-                                   (|scramble_nonce_i) & (|RndCnstIbexNonce) & scramble_req_q &
-                                   ic_scr_key_req & scramble_key_valid_d & scramble_req_d;
+    wire unused_scramble_inputs = scramble_key_valid_i & (|scramble_key_i) & (|RndCnstIbexKey) &
+                                  (|scramble_nonce_i) & (|RndCnstIbexNonce) & scramble_req_q &
+                                  ic_scr_key_req & scramble_key_valid_d & scramble_req_d;
 
     assign scramble_req_d       = 1'b0;
     assign scramble_req_q       = 1'b0;

@@ -13,10 +13,11 @@ module top_gatemate #(
   input  [ 1:0] SW,
   output [ 1:0] LED,
   input         UART_RX,
-  output        UART_TX
- // input         SPI_RX, benutzen wir garnicht mehr
-  //output        SPI_TX,
- // output        SPI_SCK
+  output        UART_TX,
+  input         JTAG_TCK,
+  input         JTAG_TMS,
+  input         JTAG_TDI,
+  output        JTAG_TDO
 );
   logic clk_sys, rst_sys_n;
   // The board has no reset button and IO_RST_N is not wired to a pad, so it
@@ -41,16 +42,17 @@ module top_gatemate #(
     .gp_i      (SW), 
     .uart_rx_i (UART_RX),
     .gp_o     (LED), 
+    .pwm_o    (),
     .uart_tx_o(UART_TX),
 
     .spi_rx_i  (1'b0),
-    //.spi_tx_o (SPI_TX),
-    //.spi_sck_o(SPI_SCK),
-    .trst_ni(1'b1),
-    .tms_i  (1'b0),
-    .tck_i  (1'b0),
-    .td_i   (1'b0),
-    .td_o   ()
+    .spi_tx_o  (),
+    .spi_sck_o (),
+    .trst_ni   (1'b1),
+    .tms_i     (JTAG_TMS),
+    .tck_i     (JTAG_TCK),
+    .td_i      (JTAG_TDI),
+    .td_o      (JTAG_TDO)
   );
 
   //hier ein input-buffer für die clock

@@ -13,3 +13,9 @@ Pin_out "LED[0]"  Loc = "IO_SB_B6";
 #UART:
 Pin_in "UART_RX" Loc = "IO_SA_A6";
 Pin_out "UART_TX" Loc = "IO_SA_B6";
+
+# Soft RISC-V debug TAP connected to the RP2040 JTAG GPIOs.
+Pin_in  "JTAG_TCK" Loc = "IO_WA_A5" | SCHMITT_TRIGGER=true;
+Pin_in  "JTAG_TDI" Loc = "IO_WA_A4";
+Pin_in  "JTAG_TMS" Loc = "IO_WA_B4";
+Pin_out "JTAG_TDO" Loc = "IO_WA_B3";
